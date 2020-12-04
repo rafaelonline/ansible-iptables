@@ -1,0 +1,6 @@
+---
+
+- name: Fazendo a limpeza da INPUT
+  iptables:
+    chain: INPUT
+    flush: true

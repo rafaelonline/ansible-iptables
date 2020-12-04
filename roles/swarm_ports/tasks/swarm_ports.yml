@@ -1,0 +1,85 @@
+---
+- name: Firewall rule - allow port 80/HTTP traffic
+  iptables:
+    chain: INPUT
+    destination_port: 80
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - allow port 8080/HTTP traffic
+  iptables:
+    chain: INPUT
+    destination_port: 8080
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - allow port 443/HTTPS traffic
+  iptables:
+    chain: INPUT
+    destination_port: 443
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - allow port 24007/TCP traffic Gluster daemon
+  iptables:
+    chain: INPUT
+    src_range: 10.94.0.121-10.94.0.123
+    destination_port: 24007:24008
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - allow port 49152/TCP traffic Gluster Brick
+  iptables:
+    chain: INPUT
+    src_range: 10.94.0.121-10.94.0.123
+    destination_port: 49152:49155
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - allow port 111/TCP traffic rpcbind
+  iptables:
+    chain: INPUT
+    src_range: 10.94.0.121-10.94.0.123
+    destination_port: 111
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - allow port 111/UDP traffic rpcbind
+  iptables:
+    chain: INPUT
+    src_range: 10.94.0.121-10.94.0.123
+    destination_port: 691
+    jump: ACCEPT
+    protocol: udp
+
+- name: Firewall rule - allow port 7946/TCP container network discovery
+  iptables:
+    chain: INPUT
+    src_range: 10.94.0.121-10.94.0.123
+    destination_port: 7946
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - allow port 7946/UDP container network discovery
+  iptables:
+    chain: INPUT
+    src_range: 10.94.0.121-10.94.0.123
+    destination_port: 7946
+    jump: ACCEPT
+    protocol: udp
+
+- name: Firewall rule - allow port 2377/TCP Docker Swarm communication 
+  iptables:
+    chain: INPUT
+    src_range: 10.94.0.121-10.94.0.123
+    destination_port: 2377
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - allow port 7946/UDP overlay network traffic
+  iptables:
+    chain: INPUT
+    src_range: 10.94.0.121-10.94.0.123
+    destination_port: 4789
+    jump: ACCEPT
+    protocol: udp

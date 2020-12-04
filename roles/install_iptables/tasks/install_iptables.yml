@@ -1,0 +1,12 @@
+- name: Instalando o iptables
+  package:
+    name: iptables
+    state: latest
+
+- name: Instalando o 'netfilter-persistent' && 'iptables-persistent'
+  package:
+    name: "{{  item  }}"
+    state: present
+  with_items:
+   - iptables-persistent
+  #- netfilter-persistent

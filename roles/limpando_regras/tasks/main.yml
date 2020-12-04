@@ -1,0 +1,3 @@
+---
+# tasks file for limpando_regras
+- include: limpando_regras.yml

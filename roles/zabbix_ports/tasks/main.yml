@@ -1,0 +1,2 @@
+# tasks file for zabbix_ports
+- include: zabbix_ports.yml

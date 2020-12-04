@@ -1,0 +1,4 @@
+---
+- name: save iptables v4 rules
+  shell: iptables-save > /etc/iptables/rules.v4
+  #listen: persist iptables
