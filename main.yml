@@ -2,7 +2,7 @@
 
 - hosts: all
   become: yes
-  user: suporte
+  user: <user>
   gather_facts: no
   pre_tasks:
   - name: 'Atualizando o repositorio'
@@ -14,55 +14,25 @@
 
 - hosts: all
   become: yes
-  user: suporte
+  user: <user>
   roles:
   - { role: limpando_regras, tags: ["limpando_regras_role"]}
 
 - hosts: webservers
   become: yes
-  user: suporte
+  user: <user>
   roles:
   - { role: webserver_ports, tags: ["webserver_ports_role"] }
 
-- hosts: zabbix
-  become: yes
-  user: suporte
-  roles:
-  - { role: zabbix_ports, tags: ["zabbix_ports_role"] }
-
-- hosts: unifi
-  become: yes
-  user: suporte
-  roles:
-  - { role: unifi_ports, tags: ["unifi_ports_role"] }
-
-- hosts: jenkins
-  become: yes
-  user: suporte
-  roles:
-  - { role: jenkins_ports, tags: ["jenkins_ports_role"] }
-
-- hosts: proxy
-  become: yes
-  user: suporte
-  roles:
-  - { role: proxy_ports, tags: ["proxy_ports_role"] }
-
-- hosts: swarm
-  become: yes
-  user: suporte
-  roles:
-  - { role: swarm_ports, tags: ["swarm_ports_role"] }
-
 - hosts: all
   become: yes
-  user: suporte
+  user: <user>
   roles:
   - { role: regras_default, tags: ["regras_default_role"] }
 
 - hosts: all
   become: yes
-  user: suporte
+  user: <user>
   roles:
   - { role: save_rules, tags: ["save_rules_role"] }
 

@@ -26,13 +26,6 @@
     jump: ACCEPT
     protocol: tcp
 
-- name: Firewall rule - allow port 10050/ZabbixAgent traffic
-  iptables:
-    chain: INPUT
-    destination_port: 10050
-    jump: ACCEPT
-    protocol: tcp
-
 - name: Firewall rule - drop any traffic without rule
   iptables:
     chain: INPUT
