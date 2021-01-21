@@ -1,15 +1,15 @@
 ---
 
-- name: Firewall rule - allow port 80/HTTP traffic
+- name: Permitindo trafego porta 80/HTTP
   iptables:
     chain: INPUT
-    destination_port: 80
+    destination_port: "80"
     jump: ACCEPT
     protocol: tcp
 
-- name: Firewall rule - allow port 443/HTTPS traffic
+- name: Permitindo trafego porta 443/HTTPS
   iptables:
     chain: INPUT
-    destination_port: 443
+    destination_port: "443"
     jump: ACCEPT
     protocol: tcp

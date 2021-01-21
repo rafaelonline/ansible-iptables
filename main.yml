@@ -2,7 +2,6 @@
 
 - hosts: all
   become: yes
-  user: <user>
   gather_facts: no
   pre_tasks:
   - name: 'Atualizando o repositorio'
@@ -14,25 +13,25 @@
 
 - hosts: all
   become: yes
-  user: <user>
   roles:
   - { role: limpando_regras, tags: ["limpando_regras_role"]}
 
+############### Insira os servidores aqui ###############
+
 - hosts: webservers
   become: yes
-  user: <user>
   roles:
   - { role: webserver_ports, tags: ["webserver_ports_role"] }
 
+################## FIM ##################
+
 - hosts: all
   become: yes
-  user: <user>
   roles:
   - { role: regras_default, tags: ["regras_default_role"] }
 
 - hosts: all
   become: yes
-  user: <user>
   roles:
   - { role: save_rules, tags: ["save_rules_role"] }
 

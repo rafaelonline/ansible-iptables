@@ -1,32 +1,41 @@
 ---
 
-- name: Firewall rule - allow all loopback traffic
+- name: Firewall rule - Permitindo todo trafego loopback
   iptables:
     action: append
     chain: INPUT
     in_interface: lo
     jump: ACCEPT
 
-- name: Firewall rule - allow established connections
+- name: Firewall rule - Permitindo conexões established
   iptables:
     chain: INPUT
     ctstate: ESTABLISHED,RELATED
     jump: ACCEPT
 
-- name: Firewall rule - allow port ping traffic
+- name: Firewall rule - Permitindo ping
   iptables:
     chain: INPUT
     jump: ACCEPT
     protocol: icmp
 
-- name: Firewall rule - allow port 22/SSH traffic
+- name: Firewall rule - Permitindo trafego na porta 22/SSH
   iptables:
     chain: INPUT
-    destination_port: 22
+    source: 192.168.0.4
+    destination_port: "22"
     jump: ACCEPT
     protocol: tcp
 
-- name: Firewall rule - drop any traffic without rule
+- name: Firewall rule - Permitindo trafego na porta 10050/ZabbixAgent
+  iptables:
+    chain: INPUT
+    source: 192.168.0.2
+    destination_port: "10050"
+    jump: ACCEPT
+    protocol: tcp
+
+- name: Firewall rule - Negando qualquer trafego sem regra definida
   iptables:
     chain: INPUT
     jump: DROP
