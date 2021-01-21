@@ -1,0 +1,8 @@
+# Created by https://www.toptal.com/developers/gitignore/api/ansible
+# Edit at https://www.toptal.com/developers/gitignore?templates=ansible
+
+### Ansible ###
+*.retry
+
+.DS_Store
+# End of https://www.toptal.com/developers/gitignore/api/ansible
