@@ -1,6 +1,6 @@
 # Configurando o IPtables via Ansible 
 
-## Sobre :start:
+## Sobre :star:
 
 Utilizando o ansible para realizar configurações de acesso no IPtables. 
 
